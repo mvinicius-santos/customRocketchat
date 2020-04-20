@@ -1,0 +1,24 @@
+{
+    "executionRoleArn": "arn:aws:iam::125017081209:role/ecsTaskExecutionRole",
+    "containerDefinitions": [
+        {
+            "name": "rocketchat",
+            "image": "<IMAGE_NAME>",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 3000,
+                    "protocol": "tcp",
+                    "containerPort": 3000
+                }
+            ]
+        }
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "networkMode": "awsvpc",
+    "cpu": "2048",
+    "memory": "4096",
+    "family": "rocketchat"
+}
