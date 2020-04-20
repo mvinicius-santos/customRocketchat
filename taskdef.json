@@ -3,7 +3,7 @@
     "containerDefinitions": [
         {
             "name": "rocketchat",
-            "image": "<IMAGE_NAME>",
+            "image": "<IMAGE1_NAME>",
             "essential": true,
             "portMappings": [
                 {
