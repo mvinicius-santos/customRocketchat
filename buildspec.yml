@@ -33,4 +33,14 @@ phases:
       - docker push $IMAGE_URI
       - printf '[{"name":"rocketchat","imageUri":"%s"}]' "$IMAGE_URI" > imageDetail.json
 artifacts:
-  files: imageDetail.json
+  files: 
+    - appspec.yaml
+    - taskdef.json
+  secondary-artifacts:
+    DefinitionArtifact:
+      files:
+        - appspec.yaml
+        - taskdef.json
+    ImageArtifact:
+      files:
+        - imageDetail.json
