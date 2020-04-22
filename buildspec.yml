@@ -34,19 +34,4 @@ phases:
       - printf '[{"name":"rocketchat","imageUri":"%s"}]' "$IMAGE_URI" > imageDetail.json
 artifacts:
   files:
-    - appspec.yaml
-    - taskdef.json
-  secondary-artifacts:
-#    DefinitionArtifact:
-#      files:
-#        - appspec.yaml
-#        - taskdef.json
-    ImageArtifact:
-      files:
-        - imageDetail.json
-    TaskArtifact:
-      files:
-        - taskdef.json
-    AppArtifact:
-      files:
-        - appspec.yaml
+    - imageDetail.json
