@@ -31,7 +31,7 @@ phases:
       - echo Build stage successfully completed on `date`
       - echo Pushing the Docker image...
       - docker push $IMAGE_URI
-      - printf '[{"name":"rocketchat","imageUri":"%s"}]' "$IMAGE_URI" > imageDetail.json
+      - printf '{"ImageURI":"%s"}' "$IMAGE_URI" > imageDetail.json
 artifacts:
   files:
     - imageDetail.json
