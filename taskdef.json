@@ -1,5 +1,6 @@
 {
     "executionRoleArn": "arn:aws:iam::125017081209:role/ecsTaskExecutionRole",
+    "taskRoleArn": "arn:aws:iam::125017081209:role/ecsRocketChatTaskRole",
     "containerDefinitions": [
         {
             "name": "rocketchat",
@@ -11,7 +12,24 @@
                     "protocol": "tcp",
                     "containerPort": 3000
                 }
-            ]
+            ],
+            "environment": [
+                { "name": "ROOT_URL", "value": "http://localhost:80" },
+                { "name": "MONGO_URL", "value": "mongodb://rocket:rocket@172.25.1.152:27017/rocketchat" },
+                { "name": "MONGO_OPLOG_URL", "value": "mongodb://oploguser:oploguser@172.25.1.152:27017/local?authSource=admin" },
+                { "name": "MAIL_URL", "value": "smtp://smtp.email" },
+                { "name": "PORT", "value": "3000" },
+                { "name": "HOME", "value": "/tmp" },
+                { "name": "Accounts_AvatarStorePath", "value": "/app/uploads" }
+            ],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                  "awslogs-group": "/ecs/rocketchat",
+                  "awslogs-region": "us-east-1",
+                  "awslogs-stream-prefix": "ecs"
+                }
+              }
         }
     ],
     "requiresCompatibilities": [
